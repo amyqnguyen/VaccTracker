@@ -12,6 +12,11 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormControl from '@material-ui/core/FormControl';
+import FormLabel from '@material-ui/core/FormLabel';
+
 import { Route } from 'react-router-dom';
 import SignUpPage from '../pages/signuppage';
 
@@ -85,6 +90,12 @@ export default function SignIn() {
             id="password"
             autoComplete="current-password"
           />
+          <Grid item xs={12}>
+                <RadioGroup row aria-label="position" name="role" defaultValue="User">
+                  <FormControlLabel value="User" control={<Radio color="primary" />} label="User" />
+                  <FormControlLabel value="Administrator" control={<Radio color="primary" />} label="Administrator" />
+                </RadioGroup>
+          </Grid>
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
             label="Remember me"
