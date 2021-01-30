@@ -7,19 +7,19 @@ import {
   Switch
 } from 'react-router-dom';
 import LoginPage from './pages/loginpage';
+import NotFound from './pages/NotFound';
+import HomePage from './pages/HomePage'
 
 function App() {
   return (
     <Router>
       <div className="App">
-        <header>
-          <h1>Covid-19 Vaccine Finder</h1>
-        </header>
-        <a href="/signuppage">Click here to get started! (placeholder)</a>
         <div>
           <Switch>
+            <Route path="/" component={HomePage} exact />
             <Route path="/signuppage" component={SignUpPage} />
             <Route path="/loginpage" component={LoginPage} />
+            <Route component={NotFound} />
           </Switch>
         </div>
       </div>
