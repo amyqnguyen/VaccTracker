@@ -1,0 +1,40 @@
+
+// import React from 'react';
+// //import  {Table} from "react-bootstrap";
+
+
+// const https = require('https');
+
+// function GetData() {
+//   https.get('https://api.covid19tracker.ca/summary', (res: any) => {
+//     let data = '';
+//     let keys = [];
+//     let results = '';
+//     res.on('data', (d: any) => {
+//         data += d;
+//     });
+
+//     res.on('end', () => {
+//         console.log(JSON.parse(data));
+//         results = JSON.parse(data);
+//         for(let x in results.data){
+//           keys.push(x);
+//         }
+//     }); 
+// }).on('error', (e: any) => {
+//     console.error(e);
+// });
+// }
+
+
+  
+//   export default function Table() {
+//    return (
+//     <Table striped bordered hover size={"sm"}>
+//     <tbody>
+//        <tr>{GetData.keys}</tr>
+//        {GetData.results}
+//     </tbody>
+// </Table>
+//    );
+//   }

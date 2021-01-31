@@ -55,28 +55,49 @@ const useStyles = makeStyles((theme) => ({
 export default function SignUp() {
   const classes = useStyles();
 
-  const [value, setValue] = React.useState('User');
+  const [role, setRole] = React.useState<'patient'|'clinic'>('patient');
+  const [lastName, setLastName] = React.useState('');
+  const [firstName, setFirstName] = React.useState('');
+  const [userEmail, setUserEmail] = React.useState('Test');
 
   const handleChange = (event : any) => {
-    setValue(event.target.value);
-    
+    setRole(event.target.value);
   };
 
   const history = useHistory();
 
-  const routeChange = async () => {
+  const routeChange = async (event: any) => {
     let path = '';
-    console.log(value);
-    await apiAddUser({ email: 'test@gmail.com', name: 'test er', role: 'patient' });
-    if(value === 'User') {
+    console.log(role);
+    console.log(lastName);
+    console.log(firstName);
+    console.log(userEmail);
+    addUser();
+    if(role === 'patient') {
       path = '/userhomepage';
       history.push(path);
     } else {
       path = '/adminhomepage';
       history.push(path);
     }
+    
   }
 
+  const inputLastName = (event: any) => {
+    setLastName(event.target.value);
+  }
+
+  const inputFirstName = (event: any) => {
+    setFirstName(event.target.value);
+  }
+
+  const inputEmail = (event: any) => {
+    setUserEmail(event.target.value);
+  }
+  
+  const addUser = () => {
+    apiAddUser({ email: userEmail, name: '${firstName} ${lastName}', role})
+  }
 
   return (
     <Container component="main" maxWidth="xs">
@@ -100,6 +121,8 @@ export default function SignUp() {
                 id="firstName"
                 label="First Name"
                 autoFocus
+                value={firstName}
+                onChange={inputFirstName}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -111,6 +134,8 @@ export default function SignUp() {
                 label="Last Name"
                 name="lastName"
                 autoComplete="lname"
+                value={lastName}
+                onChange={inputLastName}
               />
             </Grid>
             <Grid item xs={12}>
@@ -122,6 +147,8 @@ export default function SignUp() {
                 label="Email Address"
                 name="email"
                 autoComplete="email"
+                value={userEmail}
+                onChange={inputEmail}
               />
             </Grid>
             <Grid item xs={12}>
@@ -149,9 +176,9 @@ export default function SignUp() {
               />
             </Grid>
             <Grid item xs={12}>
-                <RadioGroup row aria-label="position" name="role" defaultValue="User" value={value} onChange={handleChange}>
-                  <FormControlLabel value="User" control={<Radio color="primary" />} label="User" />
-                  <FormControlLabel value="Administrator" control={<Radio color="primary" />} label="Administrator" />
+                <RadioGroup row aria-label="position" name="role" defaultValue="patient" value={role} onChange={handleChange}>
+                  <FormControlLabel value="patient" control={<Radio color="primary" />} label="Patient" />
+                  <FormControlLabel value="clinic" control={<Radio color="primary" />} label="Clinic" />
                 </RadioGroup>
             </Grid>
             <Grid item xs={12}>
