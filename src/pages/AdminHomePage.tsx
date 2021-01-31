@@ -11,6 +11,7 @@ import Orders from '../components/Orders';
 import NavBar from '../components/NavBar';
 import Grid from '@material-ui/core/Grid';
 import VaccineDashboard from '../components/VaccineDashboard'
+import Box from '@material-ui/core/Box';
 
 
 // edited from https://github.com/mui-org/material-ui/blob/master/docs/src/pages/getting-started/templates/dashboard/Orders.js
@@ -54,11 +55,16 @@ export default function AdminHomePage(){
         <NavBar />
         <Grid container spacing={3}>
         <Grid item xs={9}>
+        <Box p={1}>
         <Orders />
+        </Box>
         </Grid>
         <Grid item xs={3}>
+        <Box p={1}>
         <VaccineDashboard></VaccineDashboard>
+        </Box>
         </Grid>
+        <Box p={1.5}></Box>
         <Button variant="outlined" color="primary" onClick={handleClickOpen}>
         Input Newly Received Vaccines
       </Button>
