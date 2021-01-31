@@ -1,6 +1,8 @@
 import axios from 'axios';
 import { User } from './types/User';
 
+axios.defaults.baseURL = '';
+
 export async function apiAddUser(body: { email: string, name: string, role: 'patient'|'clinic' }) {
   axios.post('/v1/user', JSON.stringify(body));
 }
@@ -27,8 +29,3 @@ export async function apiGetVaccines(id: string) {
 export async function apiAddVaccines(id: string, body: { name: string, inventory: number }) {
   axios.post(`/v1/clinic/${id}/vaccine`, JSON.stringify(body));
 }
-
-export async function authenticate() {
-  axios.get(`/auth/google`);
-}
-
