@@ -12,20 +12,16 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
-<<<<<<< Updated upstream
-import { useHistory } from 'react-router-dom';
-=======
 import { authenticate } from '../api/apiRequest';
 import { useHistory } from 'react-router-dom';
 
->>>>>>> Stashed changes
 
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Covid Vaccine Finder
+      <Link color="inherit" href="">
+        VaccTracker
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -56,8 +52,6 @@ const useStyles = makeStyles((theme) => ({
 export default function SignIn() {
   const classes = useStyles();
 
-<<<<<<< Updated upstream
-=======
   const handleOnClick = async () => {
     await authenticate();
     routeChange();
@@ -86,7 +80,6 @@ export default function SignIn() {
 
  
 
->>>>>>> Stashed changes
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -108,6 +101,7 @@ export default function SignIn() {
             color="primary"
             className={classes.submit}
             href="/auth/google"
+            onClick={handleOnClick}
           >
             Sign in with Google
           </Button>

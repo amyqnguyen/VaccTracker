@@ -22,8 +22,8 @@ function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Covid Vaccine Finder
+      <Link color="inherit" href="">
+        VaccTracker
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
