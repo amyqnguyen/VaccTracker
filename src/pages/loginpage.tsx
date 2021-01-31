@@ -49,11 +49,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignIn() {
   const classes = useStyles();
-  const history = useHistory();
-
-  const handleOnClick = async () => {
-    history.push('/oauth/google');
-  };
 
   return (
     <Container component="main" maxWidth="xs">
@@ -75,7 +70,7 @@ export default function SignIn() {
             variant="contained"
             color="primary"
             className={classes.submit}
-            onClick={handleOnClick}
+            href="/auth/google"
           >
             Sign in with Google
           </Button>
