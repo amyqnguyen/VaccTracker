@@ -3,7 +3,7 @@ import { API_ENDPOINT } from './constants';
 import { User } from './types/User';
 
 export async function apiAddUser(body: { email: string, name: string, role: 'patient'|'clinic' }) {
-  axios.put(`${API_ENDPOINT}/v1/user`, body);
+  axios.post(`${API_ENDPOINT}/v1/user`, body);
 }
 
 export async function apiGetUserData(id: string) {
