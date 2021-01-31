@@ -7,6 +7,7 @@ import ListSubheader from '@material-ui/core/ListSubheader';
 import Select from '@material-ui/core/Select';
 import NavBar from '../components/NavBar';
 import Button from '@material-ui/core/Button';
+import { Table } from 'react-bootstrap';
 import { apiUpdatePatientData } from '../api/apiRequest';
 import axios from 'axios';
 import { Typography } from '@material-ui/core';

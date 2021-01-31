@@ -49,11 +49,39 @@ const useStyles = makeStyles((theme) => ({
 export default function SignIn() {
   const classes = useStyles();
 
+<<<<<<< HEAD
+=======
+  const handleOnClick = async () => {
+    await authenticate();
+    routeChange();
+  };
+
+>>>>>>> apiUpdatePatientData
   const [role, setValue] = React.useState<'patient'|'clinic'>('patient');
 
   const handleChange = (event : any) => {
     setValue(event.target.value);
   };
+<<<<<<< HEAD
+=======
+
+  const history = useHistory();
+
+  const routeChange = () => {
+    let path = '';
+    console.log(role);
+    if(role === 'patient') {
+      path = '/userhomepage';
+      history.push(path);
+    } else {
+      path = '/adminhomepage';
+      history.push(path);
+    }
+  }
+
+ 
+
+>>>>>>> apiUpdatePatientData
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
