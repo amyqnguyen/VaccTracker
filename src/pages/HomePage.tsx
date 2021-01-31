@@ -31,7 +31,7 @@ function Copyright() {
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
       <Link color="inherit" href="https://material-ui.com/">
-        Covid Vaccine Finder
+          VaccTracker
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -53,17 +53,21 @@ const useStyles = makeStyles((theme) => ({
   cardGrid: {
     paddingTop: theme.spacing(8),
     paddingBottom: theme.spacing(8),
+    alignItems: 'center'
   },
   card: {
     height: '100%',
     display: 'flex',
     flexDirection: 'column',
+    
   },
   cardMedia: {
     paddingTop: '56.25%', // 16:9
   },
   cardContent: {
     flexGrow: 1,
+    alignItems: 'center'
+
   },
   footer: {
     backgroundColor: theme.palette.background.paper,
@@ -83,7 +87,7 @@ export default function Album() {
         <Toolbar>
           <CheckCircleIcon className={classes.icon} />
           <Typography variant="h6" color="inherit" noWrap>
-            COVID-19 Vaccine Finder
+              VaccTracker
           </Typography>
         </Toolbar>
       </AppBar>
@@ -92,7 +96,7 @@ export default function Album() {
         <div className={classes.heroContent}>
           <Container maxWidth="md">
             <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-              COVID-19 Vaccine Finder
+              VaccTracker
             </Typography>
             <Typography variant="h5" align="center" color="textSecondary" paragraph>
               Looking for a vaccine? Signup here to be notified when it's your turn.
@@ -128,7 +132,7 @@ export default function Album() {
                     image="https://source.unsplash.com/random"
                     title="Image title"
                   />
-                  <CardContent className={classes.cardContent}>
+                  <CardContent className={classes.cardContent} >
                     <Typography gutterBottom variant="h5" component="h2">
                       Vaccination Plan
                     </Typography>
