@@ -137,8 +137,8 @@ export default function AdminHomePage(){
         Email Patients
       </Button>
       <div className={classes.space} />
-      <Button variant="contained" color="primary">
-        Create Calendar for Bookings
+      <Button variant="contained" color="primary" href="https://my.setmore.com/calendar">
+        Show Vaccine Bookings Calendar
       </Button>
       </Grid>        
         </>
