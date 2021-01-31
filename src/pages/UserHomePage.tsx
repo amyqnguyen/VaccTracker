@@ -1,17 +1,11 @@
 import React from 'react';
-import SignUpPage from '../pages/signuppage';
-import LoginPage from '../pages/loginpage';
 import FormControl from '@material-ui/core/FormControl';
-import FormLabel from '@material-ui/core/FormLabel';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Radio from '@material-ui/core/Radio';
-
 import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import Select from '@material-ui/core/Select';
+import NavBar from '../components/NavBar';
 
 
 
@@ -41,8 +35,9 @@ const useStyles = makeStyles((theme) => ({
     return (
     <Router>
         <div className="App">
+            <NavBar />
             <header>
-            <h1>Covid-19 Vaccine Finder: User Home Page</h1>
+            <h1>User Home Page</h1>
             </header>
             <h2>User Name and Postal Code</h2>
             <FormControl className={classes.formControl}>
@@ -75,7 +70,7 @@ const useStyles = makeStyles((theme) => ({
                 
                 </Select>
       </FormControl>
-            
+            <h2>Available dates for vaccination:</h2>
         </div>
     </Router>
 
