@@ -23,6 +23,7 @@ function App() {
             <Route path="/loginpage" component={LoginPage} />
             <Route path="/userhomepage" component={UserHomePage} />
             <Route path="/adminhomepage" component={AdminHomePage} />
+            <Route path="/auth/google" />
             <Route component={NotFound} />
           </Switch>
         </div>

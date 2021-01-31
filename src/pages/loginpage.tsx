@@ -12,7 +12,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
-import { authenticate } from '../api/apiRequest';
+import { useHistory } from 'react-router-dom';
 
 function Copyright() {
   return (
@@ -49,9 +49,10 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignIn() {
   const classes = useStyles();
+  const history = useHistory();
 
   const handleOnClick = async () => {
-    await authenticate();
+    history.push('/oauth/google');
   };
 
   return (
