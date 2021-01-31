@@ -37,3 +37,4 @@ export async function authenticate() {
   }
   axios.get(`${API_ENDPOINT}/auth/google`, { headers });
 }
+
