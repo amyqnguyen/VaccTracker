@@ -96,7 +96,7 @@ async function getData() {
                     >
                         Enter Priority
                     </Button>
-                    <h2>You will be notify via email once you can book an appointment!</h2>
+                    <h2>You will be notified via email once you can book an appointment!</h2>
                     <img src='emailImage.png' height="300px" />
             </div>
         
