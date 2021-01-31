@@ -15,6 +15,7 @@ import Container from '@material-ui/core/Container';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import { useHistory } from 'react-router-dom';
+import { apiAddUser } from '../api/apiRequest';
 
 
 function Copyright() {
@@ -63,9 +64,10 @@ export default function SignUp() {
 
   const history = useHistory();
 
-  const routeChange = () => {
+  const routeChange = async () => {
     let path = '';
     console.log(value);
+    await apiAddUser({ email: 'test@gmail.com', name: 'test er', role: 'patient' });
     if(value === 'User') {
       path = '/userhomepage';
       history.push(path);
@@ -171,7 +173,7 @@ export default function SignUp() {
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
-              <Link href="/userhomepage" variant="body2">
+              <Link href="/loginpage" variant="body2">
                 Already have an account? Sign in
               </Link>
             </Grid>
