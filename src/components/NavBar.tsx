@@ -74,7 +74,7 @@ export default function PrimarySearchAppBar() {
                 <HomeIcon />
               </Badge>
             </IconButton>
-            <Button color="inherit">Logout</Button>
+            <Button href='/loginpage' color="inherit">Logout</Button>
           </div>
           
         </Toolbar>

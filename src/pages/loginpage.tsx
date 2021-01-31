@@ -12,7 +12,13 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
+<<<<<<< Updated upstream
 import { useHistory } from 'react-router-dom';
+=======
+import { authenticate } from '../api/apiRequest';
+import { useHistory } from 'react-router-dom';
+
+>>>>>>> Stashed changes
 
 function Copyright() {
   return (
@@ -50,6 +56,37 @@ const useStyles = makeStyles((theme) => ({
 export default function SignIn() {
   const classes = useStyles();
 
+<<<<<<< Updated upstream
+=======
+  const handleOnClick = async () => {
+    await authenticate();
+    routeChange();
+  };
+
+  const [value, setValue] = React.useState('User');
+
+  const handleChange = (event : any) => {
+    setValue(event.target.value);
+    
+  };
+
+  const history = useHistory();
+
+  const routeChange = () => {
+    let path = '';
+    console.log(value);
+    if(value === 'User') {
+      path = '/userhomepage';
+      history.push(path);
+    } else {
+      path = '/adminhomepage';
+      history.push(path);
+    }
+  }
+
+ 
+
+>>>>>>> Stashed changes
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -59,10 +96,10 @@ export default function SignIn() {
         </Avatar>
         <form className={classes.form} noValidate>
           <Grid item xs={12}>
-            <RadioGroup row aria-label="position" name="role" defaultValue="User">
-              <FormControlLabel value="User" control={<Radio color="primary" />} label="User" />
-              <FormControlLabel value="Administrator" control={<Radio color="primary" />} label="Administrator" />
-            </RadioGroup>
+                <RadioGroup row aria-label="position" name="role" defaultValue="User" value={value} onChange={handleChange}>
+                  <FormControlLabel value="User" control={<Radio color="primary" />} label="User" />
+                  <FormControlLabel value="Administrator" control={<Radio color="primary" />} label="Administrator" />
+                </RadioGroup>
           </Grid>
           <Button
             type="submit"
@@ -74,6 +111,18 @@ export default function SignIn() {
           >
             Sign in with Google
           </Button>
+          <Grid container>
+            <Grid item xs>
+              <Link href="#" variant="body2">
+                Forgot password?
+              </Link>
+            </Grid>
+            <Grid item>
+              <Link href="/signuppage" variant="body2">
+              {"Don't have an account? Sign Up"}
+              </Link>
+            </Grid>
+          </Grid>
         </form>
       </div>
       <Box mt={8}>
