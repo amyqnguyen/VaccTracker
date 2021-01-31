@@ -71,7 +71,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const cards = [1, 2, 3];
+const cards = [1];
 
 export default function Album() {
   const classes = useStyles();
@@ -133,15 +133,12 @@ export default function Album() {
                       Vaccination Plan
                     </Typography>
                     <Typography>
-                      This is a media card. You can use this section to describe the content.
+                      See BC's vaccination plan here.
                     </Typography>
                   </CardContent>
                   <CardActions>
                     <Button size="small" color="primary">
                       View
-                    </Button>
-                    <Button size="small" color="primary">
-                      Edit
                     </Button>
                   </CardActions>
                 </Card>

@@ -1,70 +1,81 @@
 import React from 'react';
-import Link from '@material-ui/core/Link';
-import { makeStyles } from '@material-ui/core/styles';
+import { withStyles, Theme, createStyles, makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import Typography from '@material-ui/core/Typography';
+import Paper from '@material-ui/core/Paper';
 
-// Generate Order Data
-function createData(id: number, date: string, name: string, shipTo: string, paymentMethod: string, amount: number) {
-  return { id, date, name, shipTo, paymentMethod, amount };
+const StyledTableCell = withStyles((theme: Theme) =>
+  createStyles({
+    head: {
+      backgroundColor: theme.palette.common.black,
+      color: theme.palette.common.white,
+    },
+    body: {
+      fontSize: 14,
+    },
+  }),
+)(TableCell);
+
+const StyledTableRow = withStyles((theme: Theme) =>
+  createStyles({
+    root: {
+      '&:nth-of-type(odd)': {
+        backgroundColor: theme.palette.action.hover,
+      },
+    },
+  }),
+)(TableRow);
+
+function createData(
+    patientId: string,
+    userId: string,
+    priority: string,
+    postalCode: string) {
+  return { patientId, userId, priority, postalCode};
 }
 
 const rows = [
-  createData(0, '16 Mar, 2019', 'Elvis Presley', 'Tupelo, MS', 'VISA ⠀•••• 3719', 312.44),
-  createData(1, '16 Mar, 2019', 'Paul McCartney', 'London, UK', 'VISA ⠀•••• 2574', 866.99),
-  createData(2, '16 Mar, 2019', 'Tom Scholz', 'Boston, MA', 'MC ⠀•••• 1253', 100.81),
-  createData(3, '16 Mar, 2019', 'Michael Jackson', 'Gary, IN', 'AMEX ⠀•••• 2000', 654.39),
-  createData(4, '15 Mar, 2019', 'Bruce Springsteen', 'Long Branch, NJ', 'VISA ⠀•••• 5919', 212.79),
+  createData('john doe', '1', '2', 'v6p3n7'),
+  createData('janet smith', '1', '2', 'v6p3n7')
 ];
 
-function preventDefault(event: MouseEvent) {
-  event.preventDefault();
-}
-
-const useStyles = makeStyles((theme) => ({
-  seeMore: {
-    marginTop: theme.spacing(3),
+const useStyles = makeStyles({
+  table: {
+    minWidth: 700,
   },
-}));
+});
 
-export default function Orders() {
+export default function CustomizedTables() {
   const classes = useStyles();
+
   return (
-    <React.Fragment>
-        <Typography component="h2" variant="h6" color="primary" gutterBottom>
-      Eligible Patients
-        </Typography>
-      <Table size="small">
+    <TableContainer component={Paper}>
+      <Table className={classes.table} aria-label="customized table">
         <TableHead>
           <TableRow>
-            <TableCell>Date Registered</TableCell>
-            <TableCell>Name</TableCell>
-            <TableCell>Ship To</TableCell>
-            <TableCell>Payment Method</TableCell>
-            <TableCell>Sale Amount</TableCell>
+            <StyledTableCell>Patient ID</StyledTableCell>
+            <StyledTableCell align="right">UserId</StyledTableCell>
+            <StyledTableCell align="right">Priority Group</StyledTableCell>
+            <StyledTableCell align="right">Postal Code</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {rows.map((row) => (
-            <TableRow key={row.id}>
-              <TableCell>{row.date}</TableCell>
-              <TableCell>{row.name}</TableCell>
-              <TableCell>{row.shipTo}</TableCell>
-              <TableCell>{row.paymentMethod}</TableCell>
-              <TableCell>{row.amount}</TableCell>
-            </TableRow>
+            <StyledTableRow key={row.patientId}>
+              <StyledTableCell component="th" scope="row">
+                {row.patientId}
+              </StyledTableCell>
+              <StyledTableCell align="right">{row.userId}</StyledTableCell>
+              <StyledTableCell align="right">{row.priority}</StyledTableCell>
+              <StyledTableCell align="right">{row.postalCode}</StyledTableCell>
+            </StyledTableRow>
           ))}
         </TableBody>
       </Table>
-      {/* <div className={classes.seeMore}>
-        <Link color="primary" href="#" onClick={preventDefault}>
-          See more orders
-        </Link>
-      </div> */}
-    </React.Fragment>
+    </TableContainer>
   );
 }

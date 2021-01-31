@@ -8,16 +8,13 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { makeStyles } from '@material-ui/core/styles';
 import Orders from '../components/Orders';
+import NavBar from '../components/NavBar';
+
 
 // edited from https://github.com/mui-org/material-ui/blob/master/docs/src/pages/getting-started/templates/dashboard/Orders.js
 
 export default function AdminHomePage(){
-    const [open, setOpen] = React.useState(false);
-
-    function createData(id: number, date: string, name: string, shipTo: string, paymentMethod: string, amount: number) {
-        return { id, date, name, shipTo, paymentMethod, amount };
-      }
-      
+    const [open, setOpen] = React.useState(false); 
 
     const handleClickOpen = () => {
       setOpen(true);
@@ -46,6 +43,7 @@ export default function AdminHomePage(){
 
     return (
         <>
+        <NavBar />
         <Orders />
         <Button variant="outlined" color="primary" onClick={handleClickOpen}>
         Input Newly Received Vaccines
@@ -94,6 +92,12 @@ export default function AdminHomePage(){
           </Button>
         </DialogActions>
       </Dialog>
+      <Button variant="contained" color="secondary">
+        Email Patients
+      </Button>
+      <Button variant="contained" color="primary">
+        Create Calendar for Bookings
+      </Button>
         </>
     );
 }
