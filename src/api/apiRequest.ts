@@ -12,7 +12,7 @@ export async function apiGetUserData(id: string) {
   return response.data;
 }
 
-export async function apiUpdatePatientData(id: string, body: { priority: string, postalCode: string }) {
+export async function apiUpdatePatientData(id: string, body: { priority: string }) {
   axios.post(`/v1/user/${id}`, body);
 }
 

@@ -6,9 +6,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import Select from '@material-ui/core/Select';
 import NavBar from '../components/NavBar';
-import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
-import { Table } from 'react-bootstrap';
 import { apiUpdatePatientData } from '../api/apiRequest';
 
 
@@ -49,16 +47,16 @@ function GetData() {
  export default function GroupedSelect() {
 
     const classes = useStyles();
-    const [priorty, setPriorty] = React.useState('');
+    const [priority, setPriority] = React.useState('');
 
-    const updatePriorty = (event : any) => {
-        setPriorty(event.target.value);
+    const updatePriority = (event : any) => {
+        setPriority(event.target.value);
     }
 
-    // const apiUpdateData = () {
-    //     //NEED TO GET POSTALCODE? or should move to apiAddUser....
-    //     apiUpdatePatientData(id: 1, {priority: priorty});
-    // }
+    const handleOnClick = () => {
+        //NEED TO GET POSTALCODE? or should move to apiAddUser....
+        apiUpdatePatientData('1', { priority });
+    }
 
 
     return (
@@ -71,7 +69,7 @@ function GetData() {
                 <h2>User Name</h2>
                 <FormControl className={classes.formControl}>
                     <InputLabel htmlFor="grouped-select">Grouping</InputLabel>
-                    <Select defaultValue="" id="grouped-select" value={priorty} onChange={updatePriorty}>
+                    <Select defaultValue="" id="grouped-select" value={priority} onChange={updatePriority}>
                     <ListSubheader>Phase 1</ListSubheader>
                     <MenuItem value={1}>Group 1: Residents and staff of long-term care facilities</MenuItem>
                     <MenuItem value={2}>Group 2: Individuals assessed for and awaiting long-term care</MenuItem>
@@ -96,11 +94,11 @@ function GetData() {
                     </Select>
                     </FormControl>
                     <Button
-                    type="submit"
-                    variant="contained"
-                    color="primary"
-                    className={classes.submit}
-                
+                      type="submit"
+                      variant="contained"
+                      color="primary"
+                      className={classes.submit}
+                      onClick={handleOnClick} 
                     >
                         Enter Priority
                     </Button>
