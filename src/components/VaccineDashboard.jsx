@@ -131,10 +131,8 @@ export default function Deposits() {
           <Table className={classes.table} aria-label="customized table">
             <TableHead>
               <TableRow>
-                <StyledTableCell>Patient ID</StyledTableCell>
-                <StyledTableCell align="right">UserId</StyledTableCell>
-                <StyledTableCell align="right">Priority Group</StyledTableCell>
-                <StyledTableCell align="right">Postal Code</StyledTableCell>
+                <StyledTableCell>Vaccine</StyledTableCell>
+                <StyledTableCell align="right">Amount Available</StyledTableCell>
               </TableRow>
             </TableHead>
             <TableBody>
