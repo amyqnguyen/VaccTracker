@@ -14,13 +14,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
-import FormControl from '@material-ui/core/FormControl';
-import FormLabel from '@material-ui/core/FormLabel';
-import { Route } from 'react-router-dom';
-import LoginPage from '../pages/loginpage';
-import UserHomePage from '../pages/UserHomePage';
-import AdminHomePage from '../pages/AdminHomePage';
-import { ContactsOutlined } from '@material-ui/icons';
 import { useHistory } from 'react-router-dom';
 
 
