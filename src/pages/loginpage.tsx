@@ -57,7 +57,7 @@ export default function SignIn() {
     routeChange();
   };
 
-  const [value, setValue] = React.useState('User');
+  const [role, setValue] = React.useState<'patient'|'clinic'>('patient');
 
   const handleChange = (event : any) => {
     setValue(event.target.value);
@@ -68,8 +68,8 @@ export default function SignIn() {
 
   const routeChange = () => {
     let path = '';
-    console.log(value);
-    if(value === 'User') {
+    console.log(role);
+    if(role === 'patient') {
       path = '/userhomepage';
       history.push(path);
     } else {
@@ -89,9 +89,9 @@ export default function SignIn() {
         </Avatar>
         <form className={classes.form} noValidate>
           <Grid item xs={12}>
-                <RadioGroup row aria-label="position" name="role" defaultValue="User" value={value} onChange={handleChange}>
-                  <FormControlLabel value="User" control={<Radio color="primary" />} label="User" />
-                  <FormControlLabel value="Administrator" control={<Radio color="primary" />} label="Administrator" />
+                <RadioGroup row aria-label="position" name="role" defaultValue="patient" value={role} onChange={handleChange}>
+                  <FormControlLabel value="patient" control={<Radio color="primary" />} label="Patient" />
+                  <FormControlLabel value="clinic" control={<Radio color="primary" />} label="Clinic" />
                 </RadioGroup>
           </Grid>
           <Button
