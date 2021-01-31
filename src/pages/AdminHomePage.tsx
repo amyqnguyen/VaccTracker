@@ -28,7 +28,7 @@ export default function AdminHomePage(){
   
     const handleClose = () => {
       setOpen(false);
-      apiAddVaccines('', { name: vaccineName, inventory: vaccineQuant});
+      apiAddVaccines('asdfbasdf', { name: vaccineName, inventory: vaccineQuant});
     };
 
     const useStyles = makeStyles((theme) => ({
