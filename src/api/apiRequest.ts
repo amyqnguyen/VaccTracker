@@ -30,11 +30,6 @@ export async function apiAddVaccines(id: string, body: { name: string, inventory
 }
 
 export async function authenticate() {
-  const headers = {
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE',
-    'Access-Control-Allow-Headers': 'Content-Type',
-  }
-  axios.get(`${API_ENDPOINT}/auth/google`, { headers });
+  axios.get(`${API_ENDPOINT}/auth/google`);
 }
 
