@@ -8,6 +8,8 @@ import Select from '@material-ui/core/Select';
 import NavBar from '../components/NavBar';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
+import { Table } from 'react-bootstrap';
+import { apiUpdatePatientData } from '../api/apiRequest';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -15,19 +17,28 @@ const useStyles = makeStyles((theme) => ({
       margin: theme.spacing(1),
       minWidth: 120,
     },
+    submit: {
+        margin: theme.spacing(3, 0, 2),
+      },
   }));
 
 const https = require('https');
+
+//const [header, setHeader] = React.useState('Test');
 
 function GetData() {
   https.get('https://api.covid19tracker.ca/summary', (res: any) => {
     let data = '';
     res.on('data', (d: any) => {
         data += d;
+        // let header = Object.keys(data[0]).map((key, index) => {
+        //     return <th key={index}>{key}</th>
+        // });
     });
 
     res.on('end', () => {
         console.log(JSON.parse(data));
+        
     }); 
 }).on('error', (e: any) => {
     console.error(e);
@@ -38,10 +49,20 @@ function GetData() {
  export default function GroupedSelect() {
 
     const classes = useStyles();
+    const [priorty, setPriorty] = React.useState('');
+
+    const updatePriorty = (event : any) => {
+        setPriorty(event.target.value);
+    }
+
+    // const apiUpdateData = () {
+    //     //NEED TO GET POSTALCODE? or should move to apiAddUser....
+    //     apiUpdatePatientData(id: 1, {priority: priorty});
+    // }
 
 
     return (
-        <Box height='80vh'>
+       
             <div>
                 <NavBar />
                 <header>
@@ -50,10 +71,7 @@ function GetData() {
                 <h2>User Name</h2>
                 <FormControl className={classes.formControl}>
                     <InputLabel htmlFor="grouped-select">Grouping</InputLabel>
-                    <Select defaultValue="" id="grouped-select">
-                    <MenuItem value="">
-                        <em>None</em>
-                    </MenuItem>
+                    <Select defaultValue="" id="grouped-select" value={priorty} onChange={updatePriorty}>
                     <ListSubheader>Phase 1</ListSubheader>
                     <MenuItem value={1}>Group 1: Residents and staff of long-term care facilities</MenuItem>
                     <MenuItem value={2}>Group 2: Individuals assessed for and awaiting long-term care</MenuItem>
@@ -75,13 +93,29 @@ function GetData() {
 
                     <ListSubheader>Phase 3</ListSubheader>
                     <MenuItem value={14}>Group 14: People aged 59 to 18</MenuItem>
-                    
                     </Select>
-        </FormControl>
-                <h2>Book your vaccination:</h2>
-                <Button onClick={GetData}>Grab data</Button>
+                    </FormControl>
+                    <Button
+                    type="submit"
+                    variant="contained"
+                    color="primary"
+                    className={classes.submit}
+                
+                    >
+                        Enter Priority
+                    </Button>
+                    <h2>Book your vaccination:</h2>
+                    <Button onClick={GetData}>Grab data</Button>
+                    {/* <Table striped bordered hover size={"sm"}>
+                     <tbody>
+                        <tr>{this.state.header}</tr>
+                        {this.state.results}
+                     </tbody>
+                    </Table> */}
+                
             </div>
-        </Box>
+        
+        
     );
 }
 
