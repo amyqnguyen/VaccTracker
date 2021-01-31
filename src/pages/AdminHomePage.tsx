@@ -61,7 +61,7 @@ export default function AdminHomePage(){
     }
 
     const sendEmails = async () => {
-      apiSendEmails();
+      await apiSendEmails();
     }
 
     return (

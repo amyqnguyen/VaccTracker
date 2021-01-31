@@ -32,5 +32,6 @@ export async function apiAddVaccines(id: string, body: { name: string, inventory
 }
 
 export async function apiSendEmails() {
-  axios.get('/email');
+  const response = await axios.get('/v1/email');
+  return response.data;
 }
