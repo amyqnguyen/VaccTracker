@@ -7,6 +7,7 @@ import ListSubheader from '@material-ui/core/ListSubheader';
 import Select from '@material-ui/core/Select';
 import NavBar from '../components/NavBar';
 import Button from '@material-ui/core/Button';
+import { Table } from 'react-bootstrap';
 import { apiUpdatePatientData } from '../api/apiRequest';
 import axios from 'axios';
 import { Typography } from '@material-ui/core';
@@ -59,7 +60,7 @@ async function getData() {
                 <header>
                 <h1>User Home Page</h1>
                 </header>
-                <h2>User Name</h2>
+                <h2>John Doe</h2>
                 <FormControl className={classes.formControl}>
                     <InputLabel htmlFor="grouped-select">Grouping</InputLabel>
                     <Select defaultValue="" id="grouped-select" value={priority} onChange={updatePriority}>
@@ -95,20 +96,8 @@ async function getData() {
                     >
                         Enter Priority
                     </Button>
-                    <h2>Book your vaccination:</h2>
-                    <Button onClick={handleDataFetch}>Grab data</Button>
-                    {/* {covidData && covidData[0].map((data) => {
-                      <Box>
-                        <Typography></Typography>
-                      </Box>
-                    })} */}
-                    {/* <Table striped bordered hover size={"sm"}>
-                     <tbody>
-                        <tr>{this.state.header}</tr>
-                        {this.state.results}
-                     </tbody>
-                    </Table> */}
-                
+                    <h2>You will be notify via email once you can book an appointment!</h2>
+                    <img src='emailImage.png' height="300px" />
             </div>
         
         

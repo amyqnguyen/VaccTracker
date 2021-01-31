@@ -58,7 +58,7 @@ export default function SignUp() {
   const [role, setRole] = React.useState<'patient'|'clinic'>('patient');
   const [lastName, setLastName] = React.useState('');
   const [firstName, setFirstName] = React.useState('');
-  const [userEmail, setUserEmail] = React.useState('Test');
+  const [userEmail, setUserEmail] = React.useState('');
 
   const handleChange = (event : any) => {
     setRole(event.target.value);
@@ -151,18 +151,7 @@ export default function SignUp() {
                 onChange={inputEmail}
               />
             </Grid>
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
-                autoComplete="current-password"
-              />
-            </Grid>
+            
             <Grid item xs={12}>
               <TextField
                 variant="outlined"

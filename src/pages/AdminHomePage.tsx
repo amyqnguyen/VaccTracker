@@ -14,6 +14,7 @@ import VaccineDashboard from '../components/VaccineDashboard';
 import Box from '@material-ui/core/Box';
 import { apiAddVaccines, apiSendEmails } from '../api/apiRequest';
 
+
 // edited from https://github.com/mui-org/material-ui/blob/master/docs/src/pages/getting-started/templates/dashboard/Orders.js
 
 export default function AdminHomePage(){
@@ -48,6 +49,11 @@ export default function AdminHomePage(){
             textAlign: 'center',
             color: theme.palette.text.secondary,
         },
+        space : {
+          width:"20px",
+          height:"auto",
+          display:"inline-block",
+        }
       }));
 
     const classes = useStyles();
@@ -126,9 +132,11 @@ export default function AdminHomePage(){
           </Button>
         </DialogActions>
       </Dialog>
-      <Button variant="contained" color="secondary" onClick={sendEmails}>
+      <div className={classes.space} />
+      <Button variant="contained" color="secondary">
         Email Patients
       </Button>
+      <div className={classes.space} />
       <Button variant="contained" color="primary">
         Create Calendar for Bookings
       </Button>
