@@ -62,7 +62,7 @@ export default function AdminHomePage(){
         <VaccineDashboard></VaccineDashboard>
         </Box>
         </Grid>
-        <Box p={1}></Box>
+        <Box p={1.5}></Box>
         <Button variant="outlined" color="primary" onClick={handleClickOpen}>
         Input Newly Received Vaccines
       </Button>

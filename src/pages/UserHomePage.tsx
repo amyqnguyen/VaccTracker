@@ -55,7 +55,7 @@ function GetData() {
 
     const handleOnClick = () => {
         //NEED TO GET POSTALCODE? or should move to apiAddUser....
-        apiUpdatePatientData('1', { priority });
+        apiUpdatePatientData('uuidstring', { priority });
     }
 
 
