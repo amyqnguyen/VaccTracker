@@ -40,7 +40,9 @@ function createData(
 
 const rows = [
   createData('john doe', '1', '2', 'v6p3n7'),
-  createData('janet smith', '1', '2', 'v6p3n7')
+  createData('janet smith', '1', '2', 'v6p3n7'),
+  createData('janet doe', '3', '14', 'v6p3n7'),
+  createData('janet smith', '1', '2', 'v6p3n7'),
 ];
 
 const useStyles = makeStyles({

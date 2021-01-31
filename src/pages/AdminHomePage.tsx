@@ -9,6 +9,8 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import { makeStyles } from '@material-ui/core/styles';
 import Orders from '../components/Orders';
 import NavBar from '../components/NavBar';
+import Grid from '@material-ui/core/Grid';
+import VaccineDashboard from '../components/VaccineDashboard'
 
 
 // edited from https://github.com/mui-org/material-ui/blob/master/docs/src/pages/getting-started/templates/dashboard/Orders.js
@@ -36,7 +38,12 @@ export default function AdminHomePage(){
         },
         seeMore: {
             marginTop: theme.spacing(3),
-        }
+        },
+        paper: {
+            padding: theme.spacing(2),
+            textAlign: 'center',
+            color: theme.palette.text.secondary,
+        },
       }));
 
       const classes = useStyles();
@@ -44,7 +51,13 @@ export default function AdminHomePage(){
     return (
         <>
         <NavBar />
+        <Grid container spacing={3}>
+        <Grid item xs={9}>
         <Orders />
+        </Grid>
+        <Grid item xs={3}>
+        <VaccineDashboard></VaccineDashboard>
+        </Grid>
         <Button variant="outlined" color="primary" onClick={handleClickOpen}>
         Input Newly Received Vaccines
       </Button>
@@ -98,6 +111,7 @@ export default function AdminHomePage(){
       <Button variant="contained" color="primary">
         Create Calendar for Bookings
       </Button>
+      </Grid>        
         </>
     );
 }

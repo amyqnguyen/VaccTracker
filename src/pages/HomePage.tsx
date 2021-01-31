@@ -1,7 +1,6 @@
 import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
-import CameraIcon from '@material-ui/icons/PhotoCamera';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -14,6 +13,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
+import Title from '../components/Title';
 
 // const HomePage = () => (
 //     <>
@@ -138,9 +138,11 @@ export default function Album() {
                     </Typography>
                   </CardContent>
                   <CardActions>
+                    <a href="https://www2.gov.bc.ca/gov/content/safety/emergency-preparedness-response-recovery/covid-19-provincial-support/vaccines#phases">
                     <Button size="small" color="primary">
                       View
                     </Button>
+                    </a>
                   </CardActions>
                 </Card>
               </Grid>
