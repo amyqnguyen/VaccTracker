@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { User } from './types/User';
+import { Vaccine } from './types/Vaccine';
 
 axios.defaults.baseURL = '';
 
@@ -22,10 +23,14 @@ export async function apiGetWaitlist() {
 }
 
 export async function apiGetVaccines(id: string) {
-  const response = await axios.get(`/v1/clinic/${id}/vaccine`);
+  const response = await axios.get<Vaccine[]>(`/v1/clinic/${id}/vaccine`);
   return response.data;
 }
 
 export async function apiAddVaccines(id: string, body: { name: string, inventory: number }) {
   axios.post(`/v1/clinic/${id}/vaccine`, body);
+}
+
+export async function apiSendEmails() {
+  axios.get('/email');
 }

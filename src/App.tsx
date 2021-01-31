@@ -11,6 +11,7 @@ import NotFound from './pages/NotFound';
 import HomePage from './pages/HomePage'
 import UserHomePage from './pages/UserHomePage';
 import AdminHomePage from './pages/AdminHomePage';
+import AppointmentPage from './pages/AppointmentPage';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route path="/loginpage" component={LoginPage} />
             <Route path="/userhomepage" component={UserHomePage} />
             <Route path="/adminhomepage" component={AdminHomePage} />
+            <Route path="/appointmentpage" component={AppointmentPage} />
             <Route component={NotFound} />
           </Switch>
         </div>

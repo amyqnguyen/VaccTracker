@@ -12,12 +12,14 @@ import NavBar from '../components/NavBar';
 import Grid from '@material-ui/core/Grid';
 import VaccineDashboard from '../components/VaccineDashboard'
 import Box from '@material-ui/core/Box';
-
+import { apiAddVaccines, apiSendEmails } from '../api/apiRequest';
 
 // edited from https://github.com/mui-org/material-ui/blob/master/docs/src/pages/getting-started/templates/dashboard/Orders.js
 
 export default function AdminHomePage(){
     const [open, setOpen] = React.useState(false); 
+    const [vaccineName, setVaccineName] = React.useState(''); 
+    const [vaccineQuant, setVaccineQuant] = React.useState(0); 
 
     const handleClickOpen = () => {
       setOpen(true);
@@ -25,6 +27,7 @@ export default function AdminHomePage(){
   
     const handleClose = () => {
       setOpen(false);
+      apiAddVaccines('', { name: vaccineName, inventory: vaccineQuant});
     };
 
     const useStyles = makeStyles((theme) => ({
@@ -48,7 +51,18 @@ export default function AdminHomePage(){
       }));
 
     const classes = useStyles();
-     
+
+    const handleVaccineName = (e: any) => {
+      setVaccineName(e.target.value);
+    }
+
+    const handleVaccineQuantity = (e: any) => {
+      setVaccineQuant(e.target.value);
+    }
+
+    const sendEmails = async () => {
+      apiSendEmails();
+    }
 
     return (
         <>
@@ -81,6 +95,7 @@ export default function AdminHomePage(){
             label="Vaccine Manufacturer"
             type="email"
             fullWidth
+            onChange={handleVaccineName}
           />
           <TextField
             autoFocus
@@ -89,6 +104,7 @@ export default function AdminHomePage(){
             label="Number of Vaccines"
             type="email"
             fullWidth
+            onChange={handleVaccineQuantity}
           />
           <form className={classes.container} noValidate>
             <TextField
@@ -112,7 +128,7 @@ export default function AdminHomePage(){
           </Button>
         </DialogActions>
       </Dialog>
-      <Button variant="contained" color="secondary">
+      <Button variant="contained" color="secondary" onClick={sendEmails}>
         Email Patients
       </Button>
       <Button variant="contained" color="primary">

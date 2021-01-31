@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import FormControl from '@material-ui/core/FormControl';
 import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
@@ -8,6 +8,9 @@ import Select from '@material-ui/core/Select';
 import NavBar from '../components/NavBar';
 import Button from '@material-ui/core/Button';
 import { apiUpdatePatientData } from '../api/apiRequest';
+import axios from 'axios';
+import { Typography } from '@material-ui/core';
+import Box from '@material-ui/core/Box';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -20,27 +23,12 @@ const useStyles = makeStyles((theme) => ({
       },
   }));
 
-const https = require('https');
-
 //const [header, setHeader] = React.useState('Test');
 
-function GetData() {
-  https.get('https://api.covid19tracker.ca/summary', (res: any) => {
-    let data = '';
-    res.on('data', (d: any) => {
-        data += d;
-        // let header = Object.keys(data[0]).map((key, index) => {
-        //     return <th key={index}>{key}</th>
-        // });
-    });
+async function getData() {
+  const response = await axios.get('https://api.covid19tracker.ca/summary');
 
-    res.on('end', () => {
-        console.log(JSON.parse(data));
-        
-    }); 
-}).on('error', (e: any) => {
-    console.error(e);
-});
+  return response.data;
 }
 
  //startpage should link to signupage
@@ -48,6 +36,7 @@ function GetData() {
 
     const classes = useStyles();
     const [priority, setPriority] = React.useState('');
+    const [covidData, setCovidData] = React.useState(undefined as any);
 
     const updatePriority = (event : any) => {
         setPriority(event.target.value);
@@ -58,6 +47,10 @@ function GetData() {
         apiUpdatePatientData('uuidstring', { priority });
     }
 
+    const handleDataFetch = async () => {
+      const data = await getData();
+      setCovidData(data);
+    }
 
     return (
        
@@ -103,7 +96,12 @@ function GetData() {
                         Enter Priority
                     </Button>
                     <h2>Book your vaccination:</h2>
-                    <Button onClick={GetData}>Grab data</Button>
+                    <Button onClick={handleDataFetch}>Grab data</Button>
+                    {/* {covidData && covidData[0].map((data) => {
+                      <Box>
+                        <Typography></Typography>
+                      </Box>
+                    })} */}
                     {/* <Table striped bordered hover size={"sm"}>
                      <tbody>
                         <tr>{this.state.header}</tr>
