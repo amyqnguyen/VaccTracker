@@ -133,7 +133,7 @@ export default function AdminHomePage(){
         </DialogActions>
       </Dialog>
       <div className={classes.space} />
-      <Button variant="contained" color="secondary">
+      <Button variant="contained" color="secondary" onClick={sendEmails}>
         Email Patients
       </Button>
       <div className={classes.space} />
