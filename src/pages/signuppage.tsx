@@ -142,6 +142,18 @@ export default function SignUp() {
               />
             </Grid>
             <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                name="postalcode"
+                label="Postal code"
+                type="postalcode"
+                id="postalcode"
+                autoComplete="current-password"
+              />
+            </Grid>
+            <Grid item xs={12}>
                 <RadioGroup row aria-label="position" name="role" defaultValue="User" value={value} onChange={handleChange}>
                   <FormControlLabel value="User" control={<Radio color="primary" />} label="User" />
                   <FormControlLabel value="Administrator" control={<Radio color="primary" />} label="Administrator" />

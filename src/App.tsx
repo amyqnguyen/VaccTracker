@@ -21,9 +21,9 @@ function App() {
             <Route path="/" component={HomePage} exact />
             <Route path="/signuppage" component={SignUpPage} />
             <Route path="/loginpage" component={LoginPage} />
-            <Route component={NotFound} />
             <Route path="/userhomepage" component={UserHomePage} />
             <Route path="/adminhomepage" component={AdminHomePage} />
+            <Route component={NotFound} />
           </Switch>
         </div>
       </div>
