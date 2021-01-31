@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import FormControl from '@material-ui/core/FormControl';
 import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
@@ -7,11 +7,8 @@ import ListSubheader from '@material-ui/core/ListSubheader';
 import Select from '@material-ui/core/Select';
 import NavBar from '../components/NavBar';
 import Button from '@material-ui/core/Button';
-import { Table } from 'react-bootstrap';
 import { apiUpdatePatientData } from '../api/apiRequest';
 import axios from 'axios';
-import { Typography } from '@material-ui/core';
-import Box from '@material-ui/core/Box';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -96,7 +93,7 @@ async function getData() {
                     >
                         Enter Priority
                     </Button>
-                    <h2>You will be notify via email once you can book an appointment!</h2>
+                    <h2>You will be notified via email once you can book an appointment!</h2>
                     <img src='emailImage.png' height="300px" />
             </div>
         
