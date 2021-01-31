@@ -62,7 +62,7 @@ export default function SignIn() {
           <LockOutlinedIcon />
         </Avatar>
         <form className={classes.form} noValidate>
-          <Grid item xs={12}>
+          <Grid item xs={12} container justify="center">
                 <RadioGroup row aria-label="position" name="role" defaultValue="patient" value={role} onChange={handleChange}>
                   <FormControlLabel value="patient" control={<Radio color="primary" />} label="Patient" />
                   <FormControlLabel value="clinic" control={<Radio color="primary" />} label="Clinic" />
@@ -78,12 +78,7 @@ export default function SignIn() {
           >
             Sign in with Google
           </Button>
-          <Grid container>
-            <Grid item xs>
-              <Link href="#" variant="body2">
-                Forgot password?
-              </Link>
-            </Grid>
+          <Grid container justify="center">
             <Grid item>
               <Link href="/signuppage" variant="body2">
               {"Don't have an account? Sign Up"}

@@ -151,7 +151,6 @@ export default function SignUp() {
                 onChange={inputEmail}
               />
             </Grid>
-            
             <Grid item xs={12}>
               <TextField
                 variant="outlined"
@@ -161,10 +160,9 @@ export default function SignUp() {
                 label="Postal code"
                 type="postalcode"
                 id="postalcode"
-                autoComplete="current-password"
               />
             </Grid>
-            <Grid item xs={12}>
+            <Grid item xs={12} container justify="center">
                 <RadioGroup row aria-label="position" name="role" defaultValue="patient" value={role} onChange={handleChange}>
                   <FormControlLabel value="patient" control={<Radio color="primary" />} label="Patient" />
                   <FormControlLabel value="clinic" control={<Radio color="primary" />} label="Clinic" />
@@ -187,7 +185,7 @@ export default function SignUp() {
           >
             Sign Up
           </Button>
-          <Grid container justify="flex-end">
+          <Grid container justify="center">
             <Grid item>
               <Link href="/loginpage" variant="body2">
                 Already have an account? Sign in

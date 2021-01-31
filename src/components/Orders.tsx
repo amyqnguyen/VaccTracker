@@ -7,6 +7,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import { blue } from '@material-ui/core/colors';
 
 const StyledTableCell = withStyles((theme: Theme) =>
   createStyles({
@@ -67,7 +68,7 @@ export default function CustomizedTables() {
         </TableHead>
         <TableBody>
           {rows.map((row) => (
-            <StyledTableRow key={row.patientId}>
+            <StyledTableRow key={row.patientId} >
               <StyledTableCell component="th" scope="row">
                 {row.patientId}
               </StyledTableCell>

@@ -19,6 +19,11 @@ const useStyles = makeStyles((theme) => ({
     submit: {
         margin: theme.spacing(3, 0, 2),
       },
+    space : {
+        width:"auto",
+        height:"50px",
+        display:"inline-block",
+      } 
   }));
 
 //const [header, setHeader] = React.useState('Test');
@@ -93,7 +98,9 @@ async function getData() {
                     >
                         Enter Priority
                     </Button>
-                    <h2>You will be notified via email once you can book an appointment!</h2>
+                    <h3>You are in group priority {priority}!</h3>
+                    <div className={classes.space} />
+                    <h2>You will be notify via email once you can book an appointment!</h2>
                     <img src='emailImage.png' height="300px" />
             </div>
         
