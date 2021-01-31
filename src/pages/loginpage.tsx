@@ -2,9 +2,7 @@ import React from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
@@ -14,12 +12,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
-import FormControl from '@material-ui/core/FormControl';
-import FormLabel from '@material-ui/core/FormLabel';
-
-import { Route } from 'react-router-dom';
-import SignUpPage from '../pages/signuppage';
-
+import { authenticate } from '../api/apiRequest';
 
 function Copyright() {
   return (
@@ -57,6 +50,10 @@ const useStyles = makeStyles((theme) => ({
 export default function SignIn() {
   const classes = useStyles();
 
+  const handleOnClick = async () => {
+    await authenticate();
+  };
+
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -64,64 +61,23 @@ export default function SignIn() {
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
         </Avatar>
-        <Typography component="h1" variant="h5">
-          Sign in
-        </Typography>
         <form className={classes.form} noValidate>
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            id="email"
-            label="Email Address"
-            name="email"
-            autoComplete="email"
-            autoFocus
-          />
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            name="password"
-            label="Password"
-            type="password"
-            id="password"
-            autoComplete="current-password"
-          />
           <Grid item xs={12}>
-                <RadioGroup row aria-label="position" name="role" defaultValue="User">
-                  <FormControlLabel value="User" control={<Radio color="primary" />} label="User" />
-                  <FormControlLabel value="Administrator" control={<Radio color="primary" />} label="Administrator" />
-                </RadioGroup>
+            <RadioGroup row aria-label="position" name="role" defaultValue="User">
+              <FormControlLabel value="User" control={<Radio color="primary" />} label="User" />
+              <FormControlLabel value="Administrator" control={<Radio color="primary" />} label="Administrator" />
+            </RadioGroup>
           </Grid>
-          <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
-          />
           <Button
             type="submit"
             fullWidth
             variant="contained"
             color="primary"
             className={classes.submit}
+            onClick={handleOnClick}
           >
-            Sign In
+            Sign in with Google
           </Button>
-          <Grid container>
-            <Grid item xs>
-              <Link href="#" variant="body2">
-                Forgot password?
-              </Link>
-            </Grid>
-            <Grid item>
-              <Link href="/signuppage" variant="body2">
-              {"Don't have an account? Sign Up"}
-               
-              </Link>
-            </Grid>
-          </Grid>
         </form>
       </div>
       <Box mt={8}>

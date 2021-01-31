@@ -2,7 +2,7 @@ import axios from 'axios';
 import { API_ENDPOINT } from './constants';
 import { User } from './types/User';
 
-export async function apiAddUser(body: { firstName: string, lastName: string, role: 'patient'|'clinic' }) {
+export async function apiAddUser(body: { email: string, name: string, role: 'patient'|'clinic' }) {
   axios.put(`${API_ENDPOINT}/v1/user`, body);
 }
 
@@ -27,4 +27,13 @@ export async function apiGetVaccines(id: string) {
 
 export async function apiAddVaccines(id: string, body: { name: string, inventory: number }) {
   axios.post(`${API_ENDPOINT}/v1/clinic/${id}/vaccine`, body);
+}
+
+export async function authenticate() {
+  const headers = {
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE',
+    'Access-Control-Allow-Headers': 'Content-Type',
+  }
+  axios.get(`${API_ENDPOINT}/auth/google`, { headers });
 }
