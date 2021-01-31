@@ -1,6 +1,6 @@
 export interface Patient {
-  patientId: string;
-  userId: string;
-  priority: string;
+  patient_id: string;
+  user_id: string;
+  priority: number;
   postalCode: string;
 }
