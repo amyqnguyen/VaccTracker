@@ -96,7 +96,7 @@ export default function SignUp() {
   }
   
   const addUser = () => {
-    apiAddUser({ email: userEmail, name: '${firstName} ${lastName}', role})
+    apiAddUser({ email: userEmail, name: `${firstName} ${lastName}`, role })
   }
 
   return (

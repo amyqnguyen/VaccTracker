@@ -12,9 +12,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
-import { authenticate } from '../api/apiRequest';
-import { useHistory } from 'react-router-dom';
-
 
 function Copyright() {
   return (
@@ -52,34 +49,11 @@ const useStyles = makeStyles((theme) => ({
 export default function SignIn() {
   const classes = useStyles();
 
-  const handleOnClick = async () => {
-    await authenticate();
-    routeChange();
-  };
-
   const [role, setValue] = React.useState<'patient'|'clinic'>('patient');
 
   const handleChange = (event : any) => {
     setValue(event.target.value);
-    
   };
-
-  const history = useHistory();
-
-  const routeChange = () => {
-    let path = '';
-    console.log(role);
-    if(role === 'patient') {
-      path = '/userhomepage';
-      history.push(path);
-    } else {
-      path = '/adminhomepage';
-      history.push(path);
-    }
-  }
-
- 
-
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -101,7 +75,6 @@ export default function SignIn() {
             color="primary"
             className={classes.submit}
             href="/auth/google"
-            onClick={handleOnClick}
           >
             Sign in with Google
           </Button>
