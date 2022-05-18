@@ -16,7 +16,7 @@ This web app is built as a platform for clinics to coordinate the rollout of Cov
 
 ### Public
 
-Patients can register with their personal information through oAuth and securely provide their information to the clinic. Once they are notified that vaccines are available, they will be able to book an appointment to receive their vaccine.
+Patients can register with their personal information through oAuth and securely provide their information to the clinic. Once vaccines are available, they are notified and will be able to book an appointment to receive their vaccine.
 
 ### Clinics
 
